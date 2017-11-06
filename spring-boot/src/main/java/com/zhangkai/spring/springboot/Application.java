@@ -13,6 +13,11 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import com.zhangkai.spring.springboot.configbean.Book;
 import com.zhangkai.spring.springboot.configbean.BookSerializer;
 
+/**
+ * 
+ * @author and04
+ *
+ */
 @SpringBootApplication
 @EnableDiscoveryClient
 public class Application {
@@ -20,6 +25,10 @@ public class Application {
 	@Autowired
 	private JedisConnectionFactory jedisConnectionFactory;
 
+	/**
+	 * 
+	 * @return
+	 */
 	@Bean
 	public RedisTemplate<String, Book> bookRedisTemplate() {
 		RedisTemplate<String, Book> redisTemplate = new RedisTemplate<>();
@@ -35,7 +44,8 @@ public class Application {
 	 */
 	public static void main(String[] args) {
 		SpringApplication application = new SpringApplication(Application.class);
-		application.setBannerMode(Banner.Mode.OFF); // 图标
+		// 图标
+		application.setBannerMode(Banner.Mode.OFF); 
 		application.run(args);
 	}
 }
