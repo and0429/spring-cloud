@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: first
+  profiles:
+    active: dev
+    
+  data:
+    redis:
+      repositories:
+        enabled: true
+  redis:
+    url: redis://192.168.7.201:6379
+        
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
+
+    
+book:
+  name: Spring cloud
+  author: zhangkai
+  desc: ${book.name}, ${book.author}.
+
+user:
+  name: zhangkai
+  age: 32  
+      
+---
+    
+spring:
+  profiles: dev
+server:
+  port: 80
+  context-path: /dev
+logging:
+  level: 
+    root: info
+    
+---
+
+spring:
+  profiles: prod
+server:
+  port: 8080
+logging:
+  level: 
+    root: INFO
