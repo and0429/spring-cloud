@@ -4,22 +4,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+
+import com.apilabs.ribbon.consumer.domain.Book;
+import com.apilabs.ribbon.consumer.service.HelloService;
 
 @RestController
 @RequestMapping("/ribbon-consumer")
 public class ConsumerController {
 
 	@Autowired
-	private RestTemplate restTemplate;
+	private HelloService service;
 
 	/**
 	 * 
 	 * @return
 	 */
 	@GetMapping
-	public String consumer() {
-		return restTemplate.getForObject("http://SPRING-BOOT/hello", String.class);
+	public Book consumer() {
+		return service.getBook();
 	}
 
 }
