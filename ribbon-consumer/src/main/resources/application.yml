@@ -6,4 +6,12 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://peer1:1111/eureka,http://peer2:1112/eureka
+      defaultZone: http://peer2:1112/eureka/
+      
+#ribbon:
+#  eureka:
+#   enabled: false      
+      
+#baidu: 
+#  ribbon:
+#    listOfServers: www.baidu.com 

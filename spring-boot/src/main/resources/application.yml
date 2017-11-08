@@ -1,8 +1,6 @@
 spring:
   application:
-    name: first
-  profiles:
-    active: dev
+    name: spring-boot
     
   data:
     redis:
@@ -15,7 +13,8 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
+      defaultZone: http://peer2:1112/eureka/
+      # defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
 
     
 book:
@@ -26,24 +25,3 @@ book:
 user:
   name: zhangkai
   age: 32  
-      
----
-    
-spring:
-  profiles: dev
-server:
-  port: 80
-  context-path: /dev
-logging:
-  level: 
-    root: info
-    
----
-
-spring:
-  profiles: prod
-server:
-  port: 8080
-logging:
-  level: 
-    root: INFO

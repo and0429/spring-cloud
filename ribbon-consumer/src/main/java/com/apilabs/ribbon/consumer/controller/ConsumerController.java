@@ -13,9 +13,13 @@ public class ConsumerController {
 	@Autowired
 	private RestTemplate restTemplate;
 
+	/**
+	 * 
+	 * @return
+	 */
 	@GetMapping
 	public String consumer() {
-		return restTemplate.getForObject("http://FIRST/dev/hello", String.class);
+		return restTemplate.getForObject("http://SPRING-BOOT/hello", String.class);
 	}
 
 }
